@@ -1,0 +1,48 @@
+﻿@model RunLog.Domain.RunPlan
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
+}
+
+<table class="table table-responsive table-condensed table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Day</th>
+            <th scope="col">Date</th>
+            <th scope="col" class="r">Target</th>
+            <th scope="col" class="r">Distance</th>
+            <th scope="col" class="r">Time</th>
+            <th scope="col" class="r">Pace</th>
+            <th scope="col" class="r">MPH</th>
+            <th scope="col" class="r">Temp</th>
+            <th scope="col">Shoes</th>
+            <th scope="col">Run Type</th>
+            <th scope="col">Route</th>
+            <th scope="col">Comments</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var week in @Model.Weeks)
+        {
+            @Html.Partial("_Row", week)
+        }
+        <tr class="success bold">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="r">@Model.Target</td>
+            <td class="r">@Model.Distance</td>
+            <td class="r">@Model.Time</td>
+            <td class="r">@Model.Pace.ToString("mm\\:ss")</td>
+            <td class="r">@Model.Mph.ToString("N2")</td>
+            <td class="r">@Model.Temp</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

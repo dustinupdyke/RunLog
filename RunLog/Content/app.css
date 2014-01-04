@@ -1,0 +1,6 @@
+﻿body { margin-top: 20px; }
+
+table tr td, table tr th { text-align: center; }
+.l { text-align: left; }
+.r { text-align: right; }
+.bold { font-weight: bold;}

@@ -1,0 +1,177 @@
+﻿@using RunLog.Domain
+
+@model Week
+
+@{
+    var i = 0;
+    foreach (var day in Model.Days)
+    {
+    <tr>
+        <td></td>
+        <td></td>
+        <td>@day.DayOfWeek.ToString().Substring(0, 2)</td>
+        <td>@day.Date.ToString("MM/dd/yyyy")</td>
+        <td class="col-xs-1 r">@Html.TextBoxFor(m => day.Target, new {@style="width:60px;text-align:right;"})</td>
+        <td class="col-xs-1 r">@Html.TextBoxFor(m => day.Distance, new {@style="width:60px;text-align:right;"})</td>
+        <td class="col-xs-1 r">@Html.TextBoxFor(m => day.Time, new {@style="width:70px;text-align:right;"})</td>
+        <td class="r">@day.Pace.ToString("mm\\:ss")</td>
+        <td class="r">@day.Mph.ToString("N2")</td>
+        <td class="col-xs-1 r">@Html.TextBoxFor(m => day.Temp, new {@style="width:50px;text-align:right;"})</td>
+        <td>
+            @Html.DropDownListFor(model => day.Shoes, new SelectList(Enum.GetValues(typeof(Week.Shoe))))
+        </td>
+        <td>
+            @Html.DropDownListFor(model => day.RunType, new SelectList(Enum.GetValues(typeof(Week.RunType))))
+        </td>
+        <td class="col-xs-1 r">@Html.TextBoxFor(m => day.Route)</td>
+        <td class="col-xs-1 r">@Html.TextBoxFor(m => day.Comments)</td>
+    </tr>
+        i++;
+    }
+    <tr class="warning bold">
+        <td>@Model.WeekNumber</td>
+        <td>
+            @Html.DropDownListFor(model => model.RunDifficulty, new SelectList(Enum.GetValues(typeof(Week.Difficulty))))
+        </td>
+        <td></td>
+        <td></td>
+        <td class="r">@Model.Target</td>
+        <td class="r">@Model.Distance</td>
+        <td class="r">@Model.Time</td>
+        <td class="r">@Model.Pace.ToString("mm\\:ss")</td>
+        <td class="r">@Model.Mph.ToString("N2")</td>
+        <td class="r">@Model.Temp</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+}
+@*
+<tr>
+    <td>1</td>
+    <td>Easy</td>
+    <td>M</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>T</td>
+    <td>&nbsp;</td>
+    <td>4</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>W</td>
+    <td>&nbsp;</td>
+    <td>4</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Th</td>
+    <td>&nbsp;</td>
+    <td>4</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>F</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Sa</td>
+    <td>&nbsp;</td>
+    <td>14</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Su</td>
+    <td>&nbsp;</td>
+    <td>4</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>30</td>
+    <td>0</td>
+  </tr>
+*@
